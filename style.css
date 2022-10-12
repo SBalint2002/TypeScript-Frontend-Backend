@@ -761,3 +761,12 @@ input.checkbox:checked:after {
     padding: 1em 0 0;
   }
 }
+
+.hibauzenet{
+  color: darkgreen;
+  font-weight: bold;
+}
+
+#jelszoujra{
+  padding-top: 0.8em;
+}

@@ -2,6 +2,11 @@
 
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById('submit')?.addEventListener('click', () => {
+        (document.getElementById("felhuzenet")as HTMLElement).textContent= "";
+        (document.getElementById("emailuzenet")as HTMLElement).textContent= "";
+        (document.getElementById("emailujrauzenet")as HTMLElement).textContent= "";
+        (document.getElementById("jelszouzenet")as HTMLElement).textContent= "";
+        (document.getElementById("jelszoujrauzenet")as HTMLElement).textContent= "";
 
         //FELHASZNÁLÓNÉV
         let felhnev = (document.getElementById('username') as HTMLInputElement).value;
@@ -9,13 +14,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
         let format = /[&=_'-+,<>]/;
         if(format.test(felhnev)){
-            console.log("Speciális karaktert tartalmaz!");
+            (document.getElementById("felhuzenet")as HTMLElement).textContent= "Speciális karaktert tartalmaz!";
+            (document.getElementById("felhuzenet")as HTMLElement).style.color = "darkgreen";
         }else if(!(felhnev.length <= 30 && felhnev.length >=6)){
-            console.log("Rövid/hosszú!");
+            (document.getElementById("felhuzenet")as HTMLElement).textContent= "Felhasználó név csak 30 és 6 közötti karakter lehet!";
+            (document.getElementById("felhuzenet")as HTMLElement).style.color = "darkgreen";
         } else if(felhnev.includes("..")){
-            console.log("..-ot tartalmaz");
+            (document.getElementById("felhuzenet")as HTMLElement).textContent= "A jelszó nem tartalmazhat két (.) karaktert egymás mellett";
+            (document.getElementById("felhuzenet")as HTMLElement).style.color = "darkgreen";
         } else{
-            console.log("Jó felhasználó név!");
             jofelhnev = true;
         }        
 
@@ -26,17 +33,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if(validateEmail()){
             if(emailcim == emailcimujra){
-                console.log("Jó e-mail cím");
+                joemail = true;
             }else{
-                console.log("E-mail címek nem egyeznek!");
+                (document.getElementById("emailuzenet")as HTMLElement).textContent= "E-mail címek nem egyeznek!";
+                (document.getElementById("emailuzenet")as HTMLElement).style.color = "darkgreen";
             }
         }else{
-            console.log("Rossz email");
+            (document.getElementById("emailuzenet")as HTMLElement).textContent= "Nem megfelelő formátum!";
+            (document.getElementById("emailuzenet")as HTMLElement).style.color = "darkgreen";
         }
 
         //JELSZó
         let jelszo = (document.getElementById('password') as HTMLInputElement).value;
+        let jelszo2 = (document.getElementById('repassword') as HTMLInputElement).value;
+        let jojelszo = false;
 
+        format = /^[A-Za-z0-9_-]\w{5,9}$/;
+        if(format.test(jelszo)){
+            if(jelszo == jelszo2){
+                jojelszo = true;
+            }else{
+                (document.getElementById("jelszoujrauzenet")as HTMLElement).textContent= "Nem egyeznek meg a jelszavak!";
+                (document.getElementById("jelszoujrauzenet")as HTMLElement).style.color = "darkgreen";
+            }
+        }else{
+            (document.getElementById("jelszouzenet")as HTMLElement).textContent= "Nem megfelelő formátum vagy túl hosszú/rövid!";
+            (document.getElementById("jelszouzenet")as HTMLElement).style.color = "darkgreen";
+        }
+
+        //Ellenőrzés
+        if(jofelhnev && joemail && jojelszo){
+            window.alert("Sikeres regisztrálás");
+        }
 
     })
 })

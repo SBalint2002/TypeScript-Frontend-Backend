@@ -25,19 +25,24 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="main-agileinfo">
 			<div class="agileits-top">
 				<form action="#" method="post">
-					<input class="text" type="text" name="Username" placeholder="Felhasználónév" id="username">
-					<input class="text email" type="email" name="email" placeholder="E-mail cím" id="email">
-					<input class="text email" type="email" name="email" placeholder="E-mail cím újra" id="re-email">
-					<input class="text" type="password" name="password" placeholder="Jelszó" id="password">
+					<input class="text" type="text" name="Username" placeholder="Felhasználónév" id="username" required>
+					<p id="felhuzenet" class="hibauzenet"></p>
+					<input class="text email" type="email" name="email" placeholder="E-mail cím" id="email" required>
+					<p id="emailuzenet" class="hibauzenet"></p>
+					<input class="text email" type="email" name="email" placeholder="E-mail cím újra" id="re-email" required>
+					<p id="emailujrauzenet" class="hibauzenet"></p>
+					<input class="text" type="password" name="password" placeholder="Jelszó" id="password" required>
+					<p id="jelszouzenet" class="hibauzenet"></p>
+					<input class="text" type="password" name="password" placeholder="Jelszó újra" id="repassword" required>
+					<p id="jelszoujrauzenet" class="hibauzenet"></p>
 					<div class="wthree-text">
 						<label class="anim">
-							<input type="checkbox" class="checkbox">
+							<input type="checkbox" class="checkbox" required>
 							<span>Elfogadom a felhasználási feltételeket</span>
 						</label>
 						<div class="clear"> </div>
 					</div>
-					<!--<input type="submit" value="REGISZTRÁLÁS" id="submit">-->
-					<input type="button" value="REGISZTRÁLÁS" id="submit">
+					<input type="submit" value="REGISZTRÁLÁS" id="submit">
 				</form>
 				<p>Nincs még fiókja? <a href="#"> Jelentkezzen be!!</a></p>
 			</div>
