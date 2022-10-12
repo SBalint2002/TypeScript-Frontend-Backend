@@ -21,7 +21,25 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         //EMAILCÍM
         let emailcim = document.getElementById('email').value;
+        let emailcimujra = document.getElementById('re-email').value;
+        let joemail = false;
+        if (validateEmail()) {
+            if (emailcim == emailcimujra) {
+                console.log("Jó e-mail cím");
+            }
+            else {
+                console.log("E-mail címek nem egyeznek!");
+            }
+        }
+        else {
+            console.log("Rossz email");
+        }
         //JELSZó
         let jelszo = document.getElementById('password').value;
     });
 });
+const validateEmail = () => {
+    return String(document.getElementById('email').value)
+        .toLowerCase()
+        .match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+};
