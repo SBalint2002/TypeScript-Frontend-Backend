@@ -13,15 +13,12 @@ document.addEventListener("DOMContentLoaded", () => {
         let format = /[&=_'-+,<>]/;
         if (format.test(felhnev)) {
             document.getElementById("felhuzenet").textContent = "Speciális karaktert tartalmaz!";
-            document.getElementById("felhuzenet").style.color = "darkgreen";
         }
         else if (!(felhnev.length <= 30 && felhnev.length >= 6)) {
             document.getElementById("felhuzenet").textContent = "Felhasználó név csak 30 és 6 közötti karakter lehet!";
-            document.getElementById("felhuzenet").style.color = "darkgreen";
         }
         else if (felhnev.includes("..")) {
             document.getElementById("felhuzenet").textContent = "A jelszó nem tartalmazhat két (.) karaktert egymás mellett";
-            document.getElementById("felhuzenet").style.color = "darkgreen";
         }
         else {
             jofelhnev = true;
@@ -36,12 +33,10 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             else {
                 document.getElementById("emailuzenet").textContent = "E-mail címek nem egyeznek!";
-                document.getElementById("emailuzenet").style.color = "darkgreen";
             }
         }
         else {
             document.getElementById("emailuzenet").textContent = "Nem megfelelő formátum!";
-            document.getElementById("emailuzenet").style.color = "darkgreen";
         }
         //JELSZó
         let jelszo = document.getElementById('password').value;
@@ -54,12 +49,10 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             else {
                 document.getElementById("jelszoujrauzenet").textContent = "Nem egyeznek meg a jelszavak!";
-                document.getElementById("jelszoujrauzenet").style.color = "darkgreen";
             }
         }
         else {
             document.getElementById("jelszouzenet").textContent = "Nem megfelelő formátum vagy túl hosszú/rövid!";
-            document.getElementById("jelszouzenet").style.color = "darkgreen";
         }
         //Ellenőrzés
         if (jofelhnev && joemail && jojelszo) {

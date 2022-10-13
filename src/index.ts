@@ -15,13 +15,10 @@ document.addEventListener("DOMContentLoaded", () => {
         let format = /[&=_'-+,<>]/;
         if(format.test(felhnev)){
             (document.getElementById("felhuzenet")as HTMLElement).textContent= "Speciális karaktert tartalmaz!";
-            (document.getElementById("felhuzenet")as HTMLElement).style.color = "darkgreen";
         }else if(!(felhnev.length <= 30 && felhnev.length >=6)){
             (document.getElementById("felhuzenet")as HTMLElement).textContent= "Felhasználó név csak 30 és 6 közötti karakter lehet!";
-            (document.getElementById("felhuzenet")as HTMLElement).style.color = "darkgreen";
         } else if(felhnev.includes("..")){
             (document.getElementById("felhuzenet")as HTMLElement).textContent= "A jelszó nem tartalmazhat két (.) karaktert egymás mellett";
-            (document.getElementById("felhuzenet")as HTMLElement).style.color = "darkgreen";
         } else{
             jofelhnev = true;
         }        
@@ -36,11 +33,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 joemail = true;
             }else{
                 (document.getElementById("emailuzenet")as HTMLElement).textContent= "E-mail címek nem egyeznek!";
-                (document.getElementById("emailuzenet")as HTMLElement).style.color = "darkgreen";
             }
         }else{
             (document.getElementById("emailuzenet")as HTMLElement).textContent= "Nem megfelelő formátum!";
-            (document.getElementById("emailuzenet")as HTMLElement).style.color = "darkgreen";
         }
 
         //JELSZó
@@ -54,11 +49,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 jojelszo = true;
             }else{
                 (document.getElementById("jelszoujrauzenet")as HTMLElement).textContent= "Nem egyeznek meg a jelszavak!";
-                (document.getElementById("jelszoujrauzenet")as HTMLElement).style.color = "darkgreen";
             }
         }else{
             (document.getElementById("jelszouzenet")as HTMLElement).textContent= "Nem megfelelő formátum vagy túl hosszú/rövid!";
-            (document.getElementById("jelszouzenet")as HTMLElement).style.color = "darkgreen";
         }
 
         //Ellenőrzés

@@ -762,7 +762,7 @@ input.checkbox:checked:after {
   }
 }
 
-.hibauzenet{
+p.hibauzenet{
   color: darkgreen;
   font-weight: bold;
 }
